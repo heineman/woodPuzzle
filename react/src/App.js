@@ -8,6 +8,9 @@ import { movePiece, selectPiece, solvePuzzle} from './controller/Controller.js';
 import { mobileLayout } from './Mobile.js';
 import { desktopLayout } from './Desktop.js';
 
+// doing so allows images to be visible EVEN FROM github.io pages
+import fireworks from './fireworks.gif';
+
 import { useMediaQuery } from 'react-responsive'
 
 // default puzzle to use
@@ -139,7 +142,7 @@ function App() {
         onClick={handleClick} onKeyDown={handleKeyDownEvent} onKeyUp={handleKeyUpEvent} />
       
       {/* Using '?' construct is proper React way to make image visible only when victorious. */}  
-      { model.isVictorious() ? ( <img src="/fireworks.gif" alt="fireworks" /> ) : null }
+      { model.isVictorious() ? ( <img src={fireworks} alt="fireworks" /> ) : null }
 
       <p className="nummoves">#Moves: {model.numberMoves()}</p>
       <label className="showlabels"><input type="checkbox" checked={checked} onChange={handleCheckChange}/>Show Labels</label>

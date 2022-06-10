@@ -61,7 +61,7 @@ loadbutton : {
 solution : {
   position: "absolute",
   top: 20,
-  left: 475,
+  left: 550,
   numRows: 10,
 },
 

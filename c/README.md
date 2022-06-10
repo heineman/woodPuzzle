@@ -1,6 +1,6 @@
 # C implementation of Wood Puzzle.
 
-This project was built using the [https://tldp.org/HOWTO/NCURSES-Programming-HOWTO/](ncurses) library.
+This project was built using the [ncurses](https://tldp.org/HOWTO/NCURSES-Programming-HOWTO/) library.
 
 ## How to build
 

@@ -44,6 +44,7 @@ function App() {
 
   /** Ensures initial rendering is performed, and that whenever model changes, it is re-rendered. */
   React.useEffect (() => {
+    document.title = "Wood Puzzle";
     function handleResize() {
       setDimensions({
         height:window.innerHeight,

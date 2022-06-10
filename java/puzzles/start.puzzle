@@ -1,0 +1,23 @@
+# Puzzle Size
+# NumberOfRows NumberOfColumns
+5 4
+# Exit location get to (3,1) and request Down
+#  
+3 1 Down
+
+# Pieces stored here
+# values separated by spaces are:
+#   height
+#   width
+#   initialRow
+#   initialCol
+2 1 0 0 A
+2 2 0 1 B SPECIAL
+2 1 0 3 C
+2 1 2 0 D
+1 1 2 1 E
+1 1 2 2 F
+2 1 2 3 G
+1 1 3 1 H
+1 1 3 2 I
+1 2 4 1 J

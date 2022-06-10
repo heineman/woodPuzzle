@@ -1,0 +1,37 @@
+.App-canvas{
+  background-color: cornsilk;
+  outline: none;  /** Necessary when tabIndex="1" to avoid border showing up with key events. */
+}
+
+.nummoves {
+  color: rgb(212, 212, 212);
+}
+
+.showlabels {
+  color: rgb(212, 212, 212);
+}
+
+button {
+  background-color: rgb(34, 20, 95);
+  border: 1px solid rgb(124, 110, 185);
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover{
+  background-color: rgb(104, 80, 212);
+}
+
+
+button:disabled{
+  background-color: rgb(212, 212, 212);
+}

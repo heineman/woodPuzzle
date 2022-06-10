@@ -6,6 +6,9 @@ import { Up, Down, Left, Right } from './model/Model.js';
 import { redrawCanvas } from './boundary/Boundary.js';
 import { movePiece, selectPiece, solvePuzzle} from './controller/Controller.js';
 
+// load images from src. This fixes problem when being hosted on github.io pages
+import fireworks from './fireworks.apng';
+
 import { mobileLayout } from './Mobile.js';
 import { desktopLayout } from './Desktop.js';
 
@@ -140,7 +143,7 @@ function App() {
         onClick={handleClick} onKeyDown={handleKeyDownEvent} onKeyUp={handleKeyUpEvent} />
       
       {/* Using '?' construct is proper React way to make image visible only when victorious. */}  
-      { model.isVictorious() ? ( <img src={'/fireworks.apng'} alt="fireworks" /> ) : null }
+      { model.isVictorious() ? ( <img src={fireworks} alt="fireworks" /> ) : null }
 
       <p className="nummoves">#Moves: {model.numberMoves()}</p>
       <label className="showlabels"><input type="checkbox" checked={checked} onChange={handleCheckChange}/>Show Labels</label>

@@ -16,3 +16,6 @@ This will launch a browser using the address [http://localhost:3000](http://loca
 application in a browser. If the browser does not fully support Javascript, be sure to use either Firefox
 or Google Chrome.
 
+# Try it out
+
+You can run the [Sample React Application](https://heineman.github.io/woodPuzzle/) which is hosted on github.

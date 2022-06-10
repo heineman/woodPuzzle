@@ -1,13 +1,14 @@
 {
   "main.css": "/woodPuzzle/static/css/main.dd1c17cc.chunk.css",
-  "main.js": "/woodPuzzle/static/js/main.27bee4fe.chunk.js",
-  "main.js.map": "/woodPuzzle/static/js/main.27bee4fe.chunk.js.map",
+  "main.js": "/woodPuzzle/static/js/main.4ac37517.chunk.js",
+  "main.js.map": "/woodPuzzle/static/js/main.4ac37517.chunk.js.map",
   "runtime~main.js": "/woodPuzzle/static/js/runtime~main.99544d09.js",
   "runtime~main.js.map": "/woodPuzzle/static/js/runtime~main.99544d09.js.map",
-  "static/js/2.1d3f7e8f.chunk.js": "/woodPuzzle/static/js/2.1d3f7e8f.chunk.js",
-  "static/js/2.1d3f7e8f.chunk.js.map": "/woodPuzzle/static/js/2.1d3f7e8f.chunk.js.map",
+  "static/js/2.8b8fa559.chunk.js": "/woodPuzzle/static/js/2.8b8fa559.chunk.js",
+  "static/js/2.8b8fa559.chunk.js.map": "/woodPuzzle/static/js/2.8b8fa559.chunk.js.map",
   "index.html": "/woodPuzzle/index.html",
-  "precache-manifest.dfbaa3b7adcaeda7d39395e1ed34206f.js": "/woodPuzzle/precache-manifest.dfbaa3b7adcaeda7d39395e1ed34206f.js",
+  "precache-manifest.f3ce4f28c56c4f5b5beafb61bbb37fa6.js": "/woodPuzzle/precache-manifest.f3ce4f28c56c4f5b5beafb61bbb37fa6.js",
   "service-worker.js": "/woodPuzzle/service-worker.js",
-  "static/css/main.dd1c17cc.chunk.css.map": "/woodPuzzle/static/css/main.dd1c17cc.chunk.css.map"
+  "static/css/main.dd1c17cc.chunk.css.map": "/woodPuzzle/static/css/main.dd1c17cc.chunk.css.map",
+  "static/media/fireworks.gif": "/woodPuzzle/static/media/fireworks.3f1d9e8c.gif"
 }

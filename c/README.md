@@ -9,3 +9,8 @@ Type `make` to build the executable. The executable is built using the `-g` opti
 ### `./puzzle` launches the application
 
 Instructions to play the application are shown on the screen when running.
+
+The opening screen shows the puzzle to be solved:
+
+![Initial puzzle](images/initial_screen.png?raw=true "Initial Screen")
+

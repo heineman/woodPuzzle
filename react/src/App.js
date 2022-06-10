@@ -140,7 +140,7 @@ function App() {
         onClick={handleClick} onKeyDown={handleKeyDownEvent} onKeyUp={handleKeyUpEvent} />
       
       {/* Using '?' construct is proper React way to make image visible only when victorious. */}  
-      { model.isVictorious() ? ( <img src={'/fireworks.gif'} alt="fireworks" /> ) : null }
+      { model.isVictorious() ? ( <img src={'/fireworks.apng'} alt="fireworks" /> ) : null }
 
       <p className="nummoves">#Moves: {model.numberMoves()}</p>
       <label className="showlabels"><input type="checkbox" checked={checked} onChange={handleCheckChange}/>Show Labels</label>

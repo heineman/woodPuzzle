@@ -13,3 +13,46 @@ From this initial state, the user can quit the application or reset the puzzle t
 
 When the large 2x2 piece (highlighted in red) has left the board through the slot on the board of the board, the user has won the game, and should be congratulated! During game play, the total number of moves should be shown to the user.
 
+## JSON encoding of new puzzles
+
+
+You can load up different puzzles, using the JSON format. A sample `extra.json` puzzle is provided for you. To load up a different puzzle, execute with the name of the file as an argument, like `./puzzle extra.json`.
+
+````{verbatim, language="json"}
+{
+    "name": "<NAME>",
+    "board" : {
+	"rows"         : "<NUM-ROWS>",
+	"columns"      : "<NUM-COLUMNS",
+	"target"       : "<CHARACTER>",
+	"destination" : {
+	    "row"      : "<DESTINATION-INT>",
+	    "column"   : "<DESTINATION-INT>"
+	},
+	"exit" : {
+	    "start"    : "<EXIT-START-INT>",
+	    "end"      : "EXIT-END-INT>"
+	},
+	"finalMove" : "<LEFT|RIGHT|DOWN|UP>"
+    },
+    "pieces" : [
+	{ "label"    : "<CHARACTER>",
+	  "isWinner" : "TRUE|FALSE",
+	  "width"    : "<INTEGER>",
+	  "height"   : "<INTEGER>"
+	},
+        ...
+    ],
+    "locations" : [
+	{ "piece" : "<CHARACTER>",
+	  "location" : {
+	      "row"    : "<LOCATION-INT>",
+	      "column" : "<LOCATION-INT>>"
+	  }
+	},
+        ...
+    ]
+}
+````
+
+

@@ -31,49 +31,7 @@ You can request to solve the puzzle using a Breadth First Search algorithm. Once
 
 You can either manually perform the moves as indicated (i.e., select a piece and choose the indicated direction to move) or you can just type `X` to automatically make the next move in the solution. In either case, the solution will adjust to show the remaining moves to make.
 
-## JSON encoded puzzles
-
-You can load up different puzzles, using the JSON format. A sample `extra.json` puzzle is provided for you. To load up a different puzzle, execute with the name of the file as an argument, like `./puzzle extra.json`.
-
-`
-{
-    "name": "<NAME>",
-    "board" : {
-	"rows"         : "<NUM-ROWS>",
-	"columns"      : "<NUM-COLUMNS",
-	"target"       : "<CHARACTER>",
-	"destination" : {
-	    "row"      : "<DESTINATION-INT>",
-	    "column"   : "<DESTINATION-INT>"
-	},
-	"exit" : {
-	    "start"    : "<EXIT-START-INT>",
-	    "end"      : "EXIT-END-INT>"
-	},
-	"finalMove" : "<LEFT|RIGHT|DOWN|UP>"
-    },
-    "pieces" : [
-	{ "label"    : "<CHARACTER>",
-	  "isWinner" : "TRUE|FALSE",
-	  "width"    : "<INTEGER>",
-	  "height"   : "<INTEGER>"
-	},
-        ...
-    ],
-    "locations" : [
-	{ "piece" : "<CHARACTER>",
-	  "location" : {
-	      "row"    : "<LOCATION-INT>",
-	      "column" : "<LOCATION-INT>>"
-	  }
-	},
-        ...
-    ]
-}
-`
-
-
-# Dependencies
+## Dependencies
 
 JSON parsing accomplished using Dave Gamble's cJSON library, available
 from https://github.com/DaveGamble/cJSON under an MIT License.

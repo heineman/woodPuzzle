@@ -16,8 +16,8 @@ When the large 2x2 piece (highlighted in red) has left the board through the slo
 ## JSON encoding of new puzzles
 
 
-You can load up different puzzles, using the JSON format. A sample `extra.json` puzzle is provided for you. To load up a different puzzle, execute with the name of the file as an argument, like `./puzzle extra.json`.
-
+You can load up different puzzles, using the JSON format. A sample `extra.json` puzzle is provided for you. Pieces are labeled with single characters, starting at 'A' and continuing up to 'Z'.
+ 
 ````{verbatim, language="json"}
 {
     "name": "<NAME>",

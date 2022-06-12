@@ -98,9 +98,9 @@ void free_storage(SEEN_PTR sp, QUEUE_PTR qp) {
   }
 }
 
-
 /* Use BFS to solve puzzle. */
-MOVES_PTR solve_puzzle(BOARD_PTR bd) {
+MOVES_PTR solve_puzzle(PUZZLE_PTR puzzle) {
+  BOARD_PTR bd = puzzle->board;
   SEEN_PTR seen = NULL;
   QUEUE_PTR queue = calloc(1, sizeof (QUEUE));
 
@@ -126,9 +126,9 @@ MOVES_PTR solve_puzzle(BOARD_PTR bd) {
 	
 	BOARD_PTR copy = copy_board(n->board);
 	copy->selected = ch;
-	if (try_move(copy, directions[d])) {
+	if (try_move(puzzle, copy, directions[d])) {
 	  NODE_PTR np = make_node(copy, n, directions[d]);
-	  if (has_won(copy)) {
+	  if (has_won(puzzle, copy)) {
 	    MOVES_PTR solved = solution(np);
 	    free_storage(seen, queue);
 	    seen = NULL;

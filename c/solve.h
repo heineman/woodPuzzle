@@ -31,7 +31,7 @@ typedef struct moves {
   struct moves    *next;
 } MOVES, *MOVES_PTR;
 
-MOVES_PTR solve_puzzle(BOARD_PTR bd);
+MOVES_PTR solve_puzzle(PUZZLE_PTR bd);
 BOARD_PTR copy_board(BOARD_PTR bd);
 
 /** Call-back update. */

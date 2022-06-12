@@ -7,6 +7,6 @@
 // width of piece on the board
 #define W 3 
 
-void draw_board(BOARD_PTR bd, MOVES_PTR moves);
+void draw_puzzle(PUZZLE_PTR puzzle, MOVES_PTR moves);
 
 #endif /* _BOUNDARY_H_ */

@@ -5,6 +5,7 @@
 #include "boundary.h"
 #include "puzzle.h"
 
+/* Ordered spinning line. */
 static char *spinning = "\\|/-\\|/-|";
 static int sidx = 0;
 
@@ -19,36 +20,10 @@ void solve_update(int num) {
   refresh();
 }
 
-void draw_board(BOARD_PTR bd, MOVES_PTR moves) {
+void draw_puzzle(PUZZLE_PTR puzzle, MOVES_PTR moves) {
+  BOARD_PTR bd = puzzle->board;
   int off = 2;
   clear();
-
-  // outer board
-  for (int r = 0; r < bd->rows; r++) {
-    mvaddch(1+r*W, 1,   '|');
-    mvaddch(1+r*W+1, 1, '|');
-    mvaddch(1+r*W+2, 1, '|');
-    mvaddch(1+r*W, bd->cols*W+1,   '|');
-    mvaddch(1+r*W+1, bd->cols*W+1, '|');
-    mvaddch(1+r*W+2, bd->cols*W+1, '|');
-  }
-  
-  for (int c = 0; c < bd->cols; c++) {
-    mvaddch(1, 2+c*W,  '_');
-    mvaddch(1, 3+c*W,  '_');
-    mvaddch(1, 4+c*W,  '_');
-
-    // not exit!
-    if (c < 1 || c > 2) {
-      mvaddch(1+bd->rows*W, 2+c*W,  '-');
-      mvaddch(1+bd->rows*W, 3+c*W,  '-');
-      if (c > 2) { mvaddch(1+bd->rows*W, 4+c*W,  '-'); }
-    }
-  }
-  mvaddch(1,1, '.');
-  mvaddch(1,bd->cols*W+1, '.');
-  mvaddch(1+bd->rows*W,1, '.');
-  mvaddch(1+bd->rows*W,bd->cols*W+1, '.');
 
   for (int r = 0; r < bd->rows; r++) {
     for (int c = 0; c < bd->cols; c++) {
@@ -80,6 +55,72 @@ void draw_board(BOARD_PTR bd, MOVES_PTR moves) {
 
       if (ch == bd->selected) { attroff(A_REVERSE); }
     }
+  }
+
+  // outer board
+  for (int r = 0; r < bd->rows; r++) {
+    mvaddch(1+r*W,   1, '|');
+    mvaddch(1+r*W+1, 1, '|');
+    mvaddch(1+r*W+2, 1, '|');
+    mvaddch(1+r*W,   bd->cols*W+1, '|');
+    mvaddch(1+r*W+1, bd->cols*W+1, '|');
+    mvaddch(1+r*W+2, bd->cols*W+1, '|');
+  }
+  
+  for (int c = 0; c < bd->cols; c++) {
+    mvaddch(1, 2+c*W,  '_');
+    mvaddch(1, 3+c*W,  '_');
+    mvaddch(1, 4+c*W,  '_');
+
+    mvaddch(1+bd->rows*W, 2+c*W,  '-');
+    mvaddch(1+bd->rows*W, 3+c*W,  '-');
+    mvaddch(1+bd->rows*W, 4+c*W,  '-');
+  }
+
+  mvaddch(1,1, '.');
+  mvaddch(1,bd->cols*W+1, '.');
+  mvaddch(1+bd->rows*W,1, '.');
+  mvaddch(1+bd->rows*W,bd->cols*W+1, '.');
+
+  // clear away the proper exit 
+  if (puzzle->final_move == RIGHT) {
+    for (int r = puzzle->exit_start; r <= puzzle->exit_end; r++) {
+      mvaddch(1+r*W,   bd->cols*W+1, ' ');
+      mvaddch(1+r*W+1, bd->cols*W+1, ' ');
+      mvaddch(1+r*W+2, bd->cols*W+1, ' ');
+    }
+    mvaddch(1+puzzle->exit_start*W,   bd->cols*W+1, '.');
+    mvaddch(1+puzzle->exit_end*W+3,   bd->cols*W+1, '.');
+  }
+
+  if (puzzle->final_move == LEFT) {
+    for (int r = puzzle->exit_start; r <= puzzle->exit_end; r++) {
+      mvaddch(1+r*W,   1, ' ');
+      mvaddch(1+r*W+1, 1, ' ');
+      mvaddch(1+r*W+2, 1, ' ');
+    }
+    mvaddch(1+puzzle->exit_start*W,   1, '.');
+    mvaddch(1+puzzle->exit_end*W+3,   1, '.');
+  }
+
+  if (puzzle->final_move == UP) {
+    for (int c = puzzle->exit_start; c <= puzzle->exit_end; c++) {
+      mvaddch(1, 2+c*W, ' ');
+      mvaddch(1, 3+c*W, ' ');
+      mvaddch(1, 4+c*W, ' ');
+    }
+    mvaddch(1,   1+puzzle->exit_start*W, '.');
+    mvaddch(1,   4+puzzle->exit_end*W, '.');
+  }
+
+  if (puzzle->final_move == DOWN) {
+    for (int c = puzzle->exit_start; c <= puzzle->exit_end; c++) {
+      mvaddch(1+bd->rows*W, 2+c*W, ' ');
+      mvaddch(1+bd->rows*W, 3+c*W, ' ');
+      mvaddch(1+bd->rows*W, 4+c*W, ' ');
+    }
+    mvaddch(1+bd->rows*W,   1+puzzle->exit_start*W, '.');
+    mvaddch(1+bd->rows*W,   4+puzzle->exit_end*W, '.');
   }
 
   // show first ten moves

@@ -13,3 +13,12 @@ Simply compile the top-level Main.java class, which will trigger compilation of 
 ### `java woodpuzzle.Main`
 
 This will execute the main application.
+
+### JSON parsing
+
+JSON parsing provided by Minimal-Json
+(https://github.com/ralfstx/minimal-json), which is available under
+an MIT License (retrieved June 2022). This code is found in the `com.eclipsesouce.json` package.
+
+
+

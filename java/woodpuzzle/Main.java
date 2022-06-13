@@ -13,7 +13,7 @@ import woodpuzzle.model.Puzzle;
 
 public class Main {
 	public static void main(String args[]) {
-		String toLoad = "puzzles\\start.json";
+		String toLoad = "puzzles" + java.io.File.separatorChar + "start.json";
 		if (args.length > 0) {
 			toLoad = args[0];
 		}

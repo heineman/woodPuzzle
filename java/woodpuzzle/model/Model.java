@@ -103,7 +103,7 @@ public class Model {
 			if (available) { moves.add(MoveType.Left); };
 		}
 		
-		if (coord.column + p.width < 4) {
+		if (coord.column + p.width < puzzle.numColumns) {
 			available = true;
 			for (int r = 0; r < p.height; r++) {
 				if (puzzle.isCovered(new Coordinate(coord.row + r, coord.column+p.width))) {
@@ -125,7 +125,7 @@ public class Model {
 			if (available) { moves.add(MoveType.Up); };
 		}
 		
-		if (coord.row + p.height < 5) {
+		if (coord.row + p.height < puzzle.numRows) {
 			available = true;
 			for (int c = 0; c < p.width; c++) {
 				if (puzzle.isCovered(new Coordinate(coord.row+p.height, coord.column + c))) {

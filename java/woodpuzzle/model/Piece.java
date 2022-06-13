@@ -104,5 +104,4 @@ public class Piece implements Iterable<Coordinate> {
 		p.place(row, col);
 		return p;
 	}
-
 }

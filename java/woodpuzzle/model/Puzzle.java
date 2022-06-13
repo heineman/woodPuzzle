@@ -18,6 +18,10 @@ public class Puzzle implements Iterable<Piece> {
 	int exitColumn;
 	MoveType exitDirection;
 	
+	// needed for drawing borders
+	int startExit;
+	int endExit;
+	
 	/**
 	 * Rectangular puzzle has number of rows and columns.
 	 * 
@@ -35,6 +39,8 @@ public class Puzzle implements Iterable<Piece> {
 		copy.exitRow = exitRow;
 		copy.exitColumn = exitColumn;
 		copy.exitDirection = exitDirection;
+		copy.startExit = startExit;
+		copy.endExit = endExit;
 		for (Piece p : pieces) {
 			copy.placePiece(p.copy(), p.row, p.col);
 		}
@@ -68,7 +74,6 @@ public class Puzzle implements Iterable<Piece> {
 			}
 		}
 	}
-	
 	
 	/**
 	 * Place given piece at the specific location (based on anchor point of the piece).
@@ -169,4 +174,19 @@ public class Puzzle implements Iterable<Piece> {
 		return sb.toString();
 	}
 
+	public void setExit(int start, int end) {
+		startExit = start;
+		endExit = end;
+	}
+
+	public MoveType getFinalMove() {
+		return exitDirection;
+	}
+
+	public int getExitEnd() {
+		return endExit;
+	}
+	public int getExitStart() {
+		return startExit;
+	}
 }

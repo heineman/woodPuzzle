@@ -61,13 +61,9 @@ public class SolvePuzzleController {
 			Queue<State> queue = new LinkedList<>();
 			queue.add(new State(mod, null, null));
 			
-			int idx = 0;
 			while (!queue.isEmpty()) {
 				State s = queue.remove();
-				idx++;
-				if (idx % 10000 == 0) { 
-					System.out.println(idx + " ..."); 
-				}
+				
 				// Choose all available moves
 				for (Piece p : s.model.getPuzzle()) {
 					MoveType[] dirs = s.model.availableMoves(p.label);
@@ -89,6 +85,7 @@ public class SolvePuzzleController {
 								}
 								
 								app.getSolutionArea().setText(sb.toString());
+								app.requestFocusInWindow();  // stay on frame.
 								app.getSolveButton().setText("Solve");
 								return;
 							}

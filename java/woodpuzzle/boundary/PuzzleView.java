@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import woodpuzzle.model.Coordinate;
 import woodpuzzle.model.Model;
+import woodpuzzle.model.MoveType;
 import woodpuzzle.model.Piece;
 import woodpuzzle.model.Puzzle;
 
@@ -21,7 +22,7 @@ public class PuzzleView extends JPanel {
 
 	private static final long serialVersionUID = -5780076752366384800L;
 	
-	public final static int boxSize = 100;
+	public final static int boxSize = 80;
 	public final static int offset = 8;
 	
 	Model model;
@@ -66,10 +67,41 @@ public class PuzzleView extends JPanel {
 			g.setColor(Color.black);
 			g.drawString("" + p.label, r.x + r.width/2 - 10, r.y + r.height/2 + 10);
 		}
+		
+		// draw board.
+		g.setColor(Color.black);
+		if (puzzle.getFinalMove() == MoveType.Left) {
+			g.fillRect(0, 0, offset, puzzle.getExitStart()*boxSize);
+			g.fillRect(0, (puzzle.getExitEnd()+1)*boxSize, offset, (puzzle.numRows - puzzle.getExitStart())*boxSize);
+		} else {
+			g.fillRect(0, 0, offset,  puzzle.numRows*boxSize);
+		}
+		
+		if (puzzle.getFinalMove() == MoveType.Right) {
+			g.fillRect(puzzle.numColumns*boxSize - offset, 0, offset, (puzzle.getExitStart())*boxSize);
+		    g.fillRect(puzzle.numColumns*boxSize - offset, (puzzle.getExitEnd()+1)*boxSize, offset, (puzzle.numRows-puzzle.getExitEnd()-1)*boxSize);
+		  } else {
+		    g.fillRect(puzzle.numColumns*boxSize - offset, 0, offset, puzzle.numRows * boxSize);
+		  }
+		
+		if (puzzle.getFinalMove() == MoveType.Down) {
+		    g.fillRect(0, puzzle.numRows*boxSize, (puzzle.getExitEnd()-1)*boxSize, offset);
+		    g.fillRect((puzzle.getExitEnd()+1)*boxSize, puzzle.numRows*boxSize, (puzzle.numColumns-puzzle.getExitEnd()-1)*boxSize, offset);
+		  } else {
+	        g.fillRect(0, puzzle.numRows*boxSize - offset, puzzle.numColumns*boxSize, offset);
+		  }
+		
+		if (puzzle.getFinalMove() == MoveType.Up) {
+		    g.fillRect(0, 0, (puzzle.getExitEnd()-1)*boxSize, offset);
+		    g.fillRect((puzzle.getExitEnd()+1)*boxSize, 0, (puzzle.getExitEnd()-puzzle.getExitStart())*boxSize, offset);
+		  } else {
+	        g.fillRect(0, 0, puzzle.numColumns * boxSize, offset);
+		  }
 
 		if (model.isGameOver()) {
 			g.setColor(Color.blue);
-			g.drawString("Game Won! Congratulations!", 200, 200);
+			g.drawString("Game Won!", 200, 200);
+			g.drawString("Congratulations!", 200, 300);			 
 		}
 		
 	}

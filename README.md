@@ -31,13 +31,13 @@ You can load up different puzzles, using the JSON format. A sample `extra.json` 
 	},
 	"exit" : {
 	    "start"    : "<EXIT-START-INT>",
-	    "end"      : "EXIT-END-INT>"
+	    "end"      : "<EXIT-END-INT>"
 	},
 	"finalMove" : "<LEFT|RIGHT|DOWN|UP>"
     },
     "pieces" : [
 	{ "label"    : "<CHARACTER>",
-	  "isWinner" : "TRUE|FALSE",
+	  "isWinner" : "<TRUE|FALSE>",
 	  "width"    : "<INTEGER>",
 	  "height"   : "<INTEGER>"
 	},
@@ -47,7 +47,7 @@ You can load up different puzzles, using the JSON format. A sample `extra.json` 
 	{ "piece" : "<CHARACTER>",
 	  "location" : {
 	      "row"    : "<LOCATION-INT>",
-	      "column" : "<LOCATION-INT>>"
+	      "column" : "<LOCATION-INT>"
 	  }
 	},
         ...

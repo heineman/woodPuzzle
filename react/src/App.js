@@ -90,10 +90,10 @@ function App() {
      isKeyDown = true;
      
      var direction = null;
-     if (e.keyCode === 37 && model.available(Left)) { direction = Left; }
-     else if (e.keyCode === 38 && model.available(Up)) { direction = Up; }
-     else if (e.keyCode === 39 && model.available(Right)) { direction = Right; }
-     else if (e.keyCode === 40 && model.available(Down)) { direction = Down; }
+     if      ((e.keyCode === 37 || e.keyCode === 65 || e.keyCode === 100) && model.available(Left))  { direction = Left; }
+     else if ((e.keyCode === 38 || e.keyCode === 87 || e.keyCode === 104) && model.available(Up))    { direction = Up; }
+     else if ((e.keyCode === 39 || e.keyCode === 68 || e.keyCode === 102) && model.available(Right)) { direction = Right; }
+     else if ((e.keyCode === 40 || e.keyCode === 83 || e.keyCode === 98)  && model.available(Down))  { direction = Down; }
      if (direction) { movePieceHandler(direction); } 
   }
   
@@ -154,10 +154,10 @@ function App() {
       
       {/* Group buttons together */}
       <div style={layout.buttons}>
-        <button style={layout.upbutton}    onClick={(e) => movePieceHandler(Up)}    disabled={!model.available(Up)}    >^</button>
-        <button style={layout.leftbutton}  onClick={(e) => movePieceHandler(Left)}  disabled={!model.available(Left)}  >&lt;</button>
-        <button style={layout.rightbutton} onClick={(e) => movePieceHandler(Right)} disabled={!model.available(Right)} >&gt;</button>
-        <button style={layout.downbutton}  onClick={(e) => movePieceHandler(Down)}  disabled={!model.available(Down)}  >v</button> 
+        <button style={layout.upbutton}    onClick={(e) => movePieceHandler(Up)}    disabled={!model.available(Up)}    >&#8593;</button>
+        <button style={layout.leftbutton}  onClick={(e) => movePieceHandler(Left)}  disabled={!model.available(Left)}  >&#8592;</button>
+        <button style={layout.rightbutton} onClick={(e) => movePieceHandler(Right)} disabled={!model.available(Right)} >&#8594;</button>
+        <button style={layout.downbutton}  onClick={(e) => movePieceHandler(Down)}  disabled={!model.available(Down)}  >&#8595;</button> 
         
         <button style={layout.resetbutton} onClick={(e) => resetHandler()} >Reset</button>
         <button style={layout.solvebutton} onClick={(e) => solveHandler()} >Solve</button>

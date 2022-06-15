@@ -23,6 +23,7 @@ typedef struct puzzle {
 
 // Prototypes
 //
+BOARD_PTR copy_board(BOARD_PTR bd);
 PUZZLE_PTR make_puzzle(char *name, int nr, int nc,
 		       char target, int drow, int dcol,
 		       int exit_start, int exit_end, char final_move);

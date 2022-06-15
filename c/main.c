@@ -10,6 +10,7 @@
 // computed solution
 static MOVES_PTR moves = NULL;
 
+// initial sample puzzle, if none provided on command linen
 static char init_board[5][4] = {
       { 'A', 'B', 'B', 'C'},
       { 'A', 'B', 'B', 'C'},
@@ -26,6 +27,9 @@ void setup_board(char from[5][4], BOARD_PTR bd) {
     }
   }
 }
+
+// refers to copy made for reset
+static BOARD_PTR initial = NULL;
 
 //--------------------------------------------------------
 // FUNCTION main
@@ -44,6 +48,9 @@ int main(int argc, char **argv)
     setup_board(init_board, puzzle->board);
   }
 
+  
+  initial = copy_board(puzzle->board);   // make copy for Reset
+
   initscr();
   noecho();              // don't show the keyboard output
   keypad(stdscr,TRUE);   // allows keypad arrows to work
@@ -54,7 +61,7 @@ int main(int argc, char **argv)
 
     char ch = select_piece(puzzle->board, moves);
     if (ch == 'R') {
-      setup_board(init_board, puzzle->board);
+      puzzle->board = copy_board(initial);
       moves = NULL;
       continue;
     } else if (ch == 'S') {

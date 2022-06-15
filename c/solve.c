@@ -6,14 +6,6 @@
 
 #include "solve.h"
 
-BOARD_PTR copy_board(BOARD_PTR bd) {
-  BOARD_PTR copy = calloc(1, sizeof(BOARD));
-  copy->rows = bd->rows;
-  copy->cols = bd->cols;
-  copy->selected = bd->selected;
-  copy->contents = strdup((const char *)bd->contents);
-  return copy;
-}
 
 NODE_PTR make_node(BOARD_PTR bd, NODE_PTR prev, int direction) {
   NODE_PTR np = calloc(1, sizeof(NODE));

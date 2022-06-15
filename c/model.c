@@ -20,6 +20,15 @@ BOARD_PTR make_board(int nr, int nc) {
   return bd;
 }
 
+BOARD_PTR copy_board(BOARD_PTR bd) {
+  BOARD_PTR copy = calloc(1, sizeof(BOARD));
+  copy->rows = bd->rows;
+  copy->cols = bd->cols;
+  copy->selected = bd->selected;
+  copy->contents = strdup((const char *)bd->contents);
+  return copy;
+}
+
 PUZZLE_PTR make_puzzle(char *name, int nr, int nc,
 		       char target, int drow, int dcol,
 		       int exit_start, int exit_end, char final_move) {

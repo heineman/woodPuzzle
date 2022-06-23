@@ -1,7 +1,6 @@
 #include <ncurses.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include "board.h"
 #include "solve.h"
 #include "boundary.h"
 #include "puzzle.h"
@@ -66,7 +65,7 @@ int main(int argc, char **argv)
       continue;
     } else if (ch == 'S') {
       // solve
-      moves = solve_puzzle(puzzle);
+      moves = solve_puzzle(puzzle, &solve_update);
       continue;
     } else if (ch == 'X' && moves != NULL) {
       MOVES_PTR next = moves->next;

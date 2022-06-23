@@ -90,8 +90,8 @@ void free_storage(SEEN_PTR sp, QUEUE_PTR qp) {
   }
 }
 
-/* Use BFS to solve puzzle. */
-MOVES_PTR solve_puzzle(PUZZLE_PTR puzzle) {
+/* Use BFS to solve puzzle. Post updates using callback. */
+MOVES_PTR solve_puzzle(PUZZLE_PTR puzzle, void (*update)(int)) {
   BOARD_PTR bd = puzzle->board;
   SEEN_PTR seen = NULL;
   QUEUE_PTR queue = calloc(1, sizeof (QUEUE));
@@ -109,7 +109,7 @@ MOVES_PTR solve_puzzle(PUZZLE_PTR puzzle) {
     n = dequeue(queue);
     num++;
     if (num % 100 == 0) {
-      solve_update(num);
+      (*update)(num);
     }
 
     char maxp = max_piece(bd);

@@ -1,7 +1,6 @@
 #include <ncurses.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include "board.h"
 #include "solve.h"
 #include "boundary.h"
 #include "puzzle.h"

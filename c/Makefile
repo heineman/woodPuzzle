@@ -14,5 +14,5 @@ puzzle: $(FILES) $(JSON) main.c
 	gcc $^ -g -lncurses -o $@
 
 clean:
-	rm -f puzzle *~
+	rm -f puzzle *~ *.o
 

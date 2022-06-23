@@ -36,14 +36,14 @@ PUZZLE_PTR make_puzzle(char *name, int nr, int nc,
 
   ptr->name = strdup(name);
   ptr->board = make_board(nr, nc);
+  ptr->target = target;
   ptr->destination_row = drow;
   ptr->destination_column = dcol;
-  ptr->exit_start= exit_start;
+  ptr->exit_start = exit_start;
   ptr->exit_end = exit_end;
   ptr->final_move = final_move;
   return ptr;
 }
-
 
 char min_piece(BOARD_PTR bd) {
   return 'A';

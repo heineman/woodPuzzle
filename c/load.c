@@ -58,10 +58,6 @@ char *to_upper_string(const cJSON *json) {
   return "";  // reasonable default...
 }
 
-BOARD_PTR form_board(int rows, int columns) {
-  return NULL;
-}
-
 
 // makes code easier to read?
 #define get_cJSON cJSON_GetObjectItemCaseSensitive

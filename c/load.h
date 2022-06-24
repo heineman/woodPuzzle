@@ -23,4 +23,8 @@ typedef struct location {
 // prototype
 PUZZLE_PTR json_parse(char *file);
 
-#endif /*  _LOAD_H_   */
+/** 
+ * JSON parsing library: https://github.com/DaveGamble/cJSON
+ */
+
+#endif /* _LOAD_H_ */

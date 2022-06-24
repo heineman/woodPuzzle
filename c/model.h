@@ -34,6 +34,6 @@ char max_piece(BOARD_PTR bd);  // returns highest letter piece on board
 int has_won(PUZZLE_PTR puzzle, BOARD_PTR bd);
 int try_move(PUZZLE_PTR puzzle, BOARD_PTR, char ch);
 char loc(BOARD_PTR bd, int r, int c);
-char setloc(BOARD_PTR bd, int r, int c, char ch);
+void setloc(BOARD_PTR bd, int r, int c, char ch);
 
 #endif /* _MODEL_H_ */

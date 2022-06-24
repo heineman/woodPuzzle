@@ -11,7 +11,7 @@ FILES = queue.c \
 JSON = cJSON.c
 
 puzzle: $(FILES) $(JSON) main.c
-	gcc $^ -g -lncurses -o $@
+	gcc $^ -g -Wall -pedantic -lncurses -o $@
 
 clean:
 	rm -f puzzle *~ *.o

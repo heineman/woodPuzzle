@@ -69,7 +69,7 @@ char loc(BOARD_PTR bd, int r, int c) {
   return bd->contents[r*bd->cols + c];
 }
 
-char setloc(BOARD_PTR bd, int r, int c, char ch) {
+void setloc(BOARD_PTR bd, int r, int c, char ch) {
   bd->contents[r*bd->cols + c] = ch;
 }
 

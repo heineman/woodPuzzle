@@ -323,14 +323,4 @@ export default class Model {
     // all others come here...
     return allMoves.includes(direction);
   }
-  
-  copy() {
-    let m = new Model();                 
-    m.puzzle = this.puzzle.clone();
-    m.numMoves = this.numMoves;
-    m.showLabels = this.showLabels;
-    m.victory = this.victory;
-    return m;
-  }
 }
-

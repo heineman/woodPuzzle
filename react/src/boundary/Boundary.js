@@ -27,7 +27,6 @@ export function computeRectangle(piece) {
 
 /** Draw puzzle. */
 export function drawPuzzle (ctx, puzzle, showLabels) {
-  
   ctx.shadowColor = 'black';
   
   let selected = puzzle.selected;

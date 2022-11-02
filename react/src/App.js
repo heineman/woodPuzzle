@@ -25,6 +25,7 @@ var isKeyDown = false;
 
 function App() {
   const [model, setModel] = React.useState(new Model(actualPuzzle));
+  const [redraw, forceRedraw] = React.useState(0);     // used to conveniently request redraw after model change
   const [checked, setChecked] = React.useState(false);
   const [solved, setSolved] = React.useState(false);
   const [solution, setSolution] = React.useState("");
@@ -55,7 +56,7 @@ function App() {
     
     /** Happens once. */
     redrawCanvas(model, canvasRef.current, appRef.current);
-  }, [model])   // this second argument is CRITICAL, since it declares when to refresh (whenever Model changes)
+  }, [model, redraw])   // this second argument is CRITICAL, since it declares when to refresh (whenever Model changes)
 
   const toggleVisibility = () => {
     setInputPuzzleVisible(!isInputPuzzleVisible);
@@ -66,19 +67,19 @@ function App() {
   };
 
   const handleClick = (e) => {
-    let newModel = selectPiece(model, canvasRef.current, e);
-    setModel(newModel);   // react to changes, if model has changed.
+    selectPiece(model, canvasRef.current, e)
+    forceRedraw(redraw+1)          // force a redraw by incrementing this state count
   }
   
   const movePieceHandler = (direction) => {
-    let newModel = movePiece(model, direction);
+    movePiece(model, direction);
     if (solved) {
       let idx = solution.indexOf("\n"); // extract first move
       let result = solution.substring(idx+1);
       setSolution(result);
       if (result.length === 0) { setSolved(false); } // remove the text solution....
     }
-    setModel(newModel);   // react to changes, if model has changed.
+    forceRedraw(redraw+1)   // force a redraw
   }
   
   const handleKeyUpEvent = (e) => {
@@ -99,7 +100,7 @@ function App() {
   
   const resetHandler = () => {
     let m = new Model(actualPuzzle);
-    setModel(m);                    // react to changes since model has changed.
+    setModel(m);                    // Go back and restart. Changed state forces a redraw
     setChecked(false);
   }
 
@@ -118,7 +119,7 @@ function App() {
     actualPuzzle = JSON.parse(inputPuzzle);
     try {
       let m = new Model(actualPuzzle)
-      setModel(m);
+      setModel(m);          // load up a new puzzle, which changes state to be redrawn
       setChecked(false);
     } catch (err) {
       console.log("Problem parsing input:" + err);
@@ -128,7 +129,7 @@ function App() {
   const handleCheckChange = () => {
      setChecked(!checked);
      model.setShowLabels(!checked);
-     setModel(model.copy());        // force redraw
+     forceRedraw(redraw+1)          // force a redraw by incrementing this state count
   }
  
   // top-level application

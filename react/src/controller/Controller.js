@@ -6,7 +6,7 @@ export function selectPiece(model, canvas, event) {
     
     let idx = model.puzzle.pieces.findIndex(piece => {
        let rect = computeRectangle(piece);
-	   return rect.contains(event.clientX - canvasRect.left, event.clientY - canvasRect.top);
+	     return rect.contains(event.clientX - canvasRect.left, event.clientY - canvasRect.top);
     });
 
     let selected = null;
@@ -16,13 +16,12 @@ export function selectPiece(model, canvas, event) {
 
     // select this piece! Construct new model to represent this situation.
     model.puzzle.select(selected);
-    return model.copy();
 }
 
 /** Deals with winning condition by removing the special piece! */
 export function movePiece(model, direction) {
     let selected = model.puzzle.selected;
-    if (!selected) { return model; }
+    if (!selected) { return; }
 
     if (model.puzzle.hasWon() && direction === model.puzzle.finalMove) {
       model.puzzle.pieces = model.puzzle.pieces.filter(p => p !== selected);
@@ -33,7 +32,6 @@ export function movePiece(model, direction) {
     }
     
     model.updateMoveCount(+1);
-    return model.copy();
 }
 
 class Node {

@@ -25,9 +25,9 @@ var isKeyDown = false;
 
 function App() {
   const [model, setModel] = React.useState(new Model(actualPuzzle));
-  const [redraw, forceRedraw] = React.useState(0);     // used to conveniently request redraw after model change
-  const [checked, setChecked] = React.useState(false);
-  const [solved, setSolved] = React.useState(false);
+  const [redraw, forceRedraw] = React.useState(0);       // used to conveniently request redraw after model change
+  const [checked, setChecked] = React.useState(false);   // is "show labels" checked?
+  const [solved, setSolved] = React.useState(false);     // is puzzle solution computed and shown?
   const [solution, setSolution] = React.useState("");
   const [isInputPuzzleVisible, setInputPuzzleVisible] = React.useState(false);
   const [inputPuzzle, setInputPuzzle] = React.useState("");

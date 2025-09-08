@@ -8,4 +8,6 @@ describe('Coordinate', () => {
     expect(coord.row).toBe(2)
     expect(coord.column).toBe(3)
   })
+
+
 })

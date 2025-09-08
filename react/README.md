@@ -24,3 +24,8 @@ type the following first.
 # Try it out
 
 You can run the [Sample React Application](https://heineman.github.io/woodPuzzle/) which is hosted on github.
+
+# Manual testing via jest
+
+`npm test` will execute test cases. For the CI/CD, I need to manually install `npm install canvas` even before writing any test cases involving the GUI.
+

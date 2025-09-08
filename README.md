@@ -55,4 +55,6 @@ You can load up different puzzles, using the JSON format. A sample `extra.json` 
 }
 ````
 
+## Enabling CI/CD on `devel` branch
 
+Automatic testing via CI/CD when checking in devel branch.

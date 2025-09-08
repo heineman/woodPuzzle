@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 The first step is to install React using npm. 
 
-### `npm install react-scripts --save`
+### `npm install react-scripts@latest`
 
 Next, in the project directory, you can run:
 

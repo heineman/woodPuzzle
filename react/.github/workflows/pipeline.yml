@@ -1,0 +1,23 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - devel        # This workflow will only run on pushes to the 'devel' branch
+  pull_request:
+    branches:
+      - devel        # This workflow will only run on pull requests targeting the 'devel' branch
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests
+        run: npm test
